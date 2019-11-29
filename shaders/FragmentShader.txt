@@ -1,0 +1,18 @@
+#version 330 core
+
+in vec2 texCoords;
+out vec4 fragColor;
+
+uniform sampler2D image;
+uniform vec3 spriteColor;
+uniform bool imageOn;
+
+void main()
+{  
+	if(imageOn){
+		fragColor = vec4(spriteColor, 1.0) * texture(image, texCoords);
+	}
+	else{
+		fragColor = vec4(spriteColor, 1.0);
+	}
+}
